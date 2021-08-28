@@ -1,3 +1,11 @@
+/***************************************************************************//**
+ * ITCR
+ *
+ * Juan Daniel Rodriguez Montero
+ * Algoritmos y estructuras de datos 2
+ * 2020426163
+ *
+ ******************************************************************************/
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -6,6 +14,10 @@
 
 using namespace std;
 
+
+/*!
+ ... this class stores an array of 256 integers, the integer "bit" for the replacement algorithm and the page number ...
+*/
 class Page{
 private:
     int pageNumber = 0;
@@ -37,7 +49,9 @@ public:
 };
 
 
-
+/*!
+ ... this function receives the pointer to an array and orders it ...
+*/
 void insertionSort(int *array, int size)
 {
     int key, j;
@@ -52,7 +66,9 @@ void insertionSort(int *array, int size)
     }
 }
 
-
+/*!
+ ... this function receives two arrays for the ordering algorithm to order them both ...
+*/
 void twoPagesOrdering(int *array1, int *array2 )
 {
     int combineArray[512];
@@ -71,7 +87,9 @@ void twoPagesOrdering(int *array1, int *array2 )
     }
 }
 
-
+/*!
+ ... the replacement algorithm returns an integer that is the position in the page array in which there is a page with bit 0 (unoccupied) ...
+*/
 int clockReplacementAlgorithm(Page* ptrArray)
 {
     for (int i = 0; i < 6; ++i)
@@ -100,8 +118,11 @@ void extractVirtualPage(int pageNumber, int position)
 }
 
 
-//-----------------------------------------------------------------
-// A class to represent an Page array
+/*!
+ ... esta clase sobrecarga el operador [] para poder determinar la pagina que debe retornar o reemplazar  ...
+     A class to represent an Page array
+*/
+
 class PagedArray {
 private:
     Page* ptr;
@@ -142,6 +163,10 @@ public:
     }
 };
 
+
+/*!
+ ... this function captures the name of the file to sort and the name of the resulting file ...
+*/
 void captureConsoleFileNames(string* file, string* finalFile, string comando)
 {
     char arr[comando.length() + 1];
@@ -181,6 +206,10 @@ int main()
     getline(cin, comando);
     captureConsoleFileNames(&archivo, &archivo_resultado, comando);
 
+    cout << archivo << endl;
+    cout << archivo_resultado << endl;
+
+
 
     for (int i = 1; i <= totalPagesOfTheFile; ++i) {
 
@@ -188,7 +217,7 @@ int main()
 
         }
         //cuando sale del segundo ciclo la pagina del primer
-        //ciclo estara ordenada y lista para enviarla al archivo
+        //ciclo estara ordenada y lista para enviarla al archivo final
     }
 
 
