@@ -3,4 +3,4 @@ project(File_Paging)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(File_Paging Page.cpp)
+add_executable(File_Paging main.cpp)
